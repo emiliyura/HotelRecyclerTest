@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-
+// я был тут
 class AdapterClass(private val dataList: ArrayList<DataClass>) :
     RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
 

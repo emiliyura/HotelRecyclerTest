@@ -1,26 +1,28 @@
 package com.example.hotelrecyclertest
 
-import android.content.Context
+import android.util.Log
 
-class SearchHistoryHelper(private val context: Context) {
-    private val sharedPreferences = context.getSharedPreferences("SearchHistory", Context.MODE_PRIVATE)
+class SearchHistoryHelper {
+    private val history = mutableListOf<String>()
     private val maxHistorySize = 10
 
     fun addSearchQuery(query: String) {
-        val history = getSearchHistory().toMutableList()
+        Log.d("SearchHistoryHelper", "Adding query: $query")
         history.remove(query) // Удаляем дубликаты
         history.add(0, query) // Добавляем в начало
         if (history.size > maxHistorySize) {
-            history.removeAt(history.size - 1) // Ограничиваем размер
+            history.removeAt(history.size - 1)
         }
-        sharedPreferences.edit().putStringSet("history", history.toSet()).apply()
+        Log.d("SearchHistoryHelper", "Current history: $history")
     }
 
     fun getSearchHistory(): List<String> {
-        return sharedPreferences.getStringSet("history", setOf())?.toList() ?: listOf()
+        Log.d("SearchHistoryHelper", "Retrieved history: $history")
+        return history
     }
 
     fun clearHistory() {
-        sharedPreferences.edit().remove("history").apply()
+        Log.d("SearchHistoryHelper", "Clearing history")
+        history.clear()
     }
 }
