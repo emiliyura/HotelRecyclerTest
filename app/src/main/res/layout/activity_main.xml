@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Строка поиска -->
+    <!-- Search View -->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search"
         android:layout_width="0dp"
@@ -22,7 +22,7 @@
         app:queryHint="Search..."
         app:searchHintIcon="@null" />
 
-    <!-- Блок истории поиска -->
+    <!-- Search History RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchHistoryRecyclerView"
         android:layout_width="0dp"
@@ -35,19 +35,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search" />
 
-    <!-- Переключатель темы -->
+    <!-- Theme Switch -->
     <Switch
         android:id="@+id/themeSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
-        android:text="Темная тема"
+        android:text="Dark Theme"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchHistoryRecyclerView"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-    <!-- Кнопка очистки истории -->
+    <!-- Clear History Button -->
     <Button
         android:id="@+id/clearHistoryButton"
         android:layout_width="wrap_content"
@@ -55,11 +55,11 @@
         android:layout_marginEnd="12dp"
         android:layout_marginTop="8dp"
         android:onClick="onClearHistoryClick"
-        android:text="Очистить историю"
+        android:text="Clear History"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchHistoryRecyclerView" />
 
-    <!-- RecyclerView для основного списка -->
+    <!-- Main RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/clearHistoryButton" />
 
-    <!-- ProgressBar для отображения загрузки -->
+    <!-- Search ProgressBar -->
     <ProgressBar
         android:id="@+id/searchProgress"
         android:layout_width="wrap_content"
@@ -80,5 +80,175 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    tools:context=".MainActivity">-->
+
+    <!--    &lt;!&ndash; Строка поиска &ndash;&gt;-->
+    <!--    <androidx.appcompat.widget.SearchView-->
+    <!--        android:id="@+id/search"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        android:focusable="false"-->
+    <!--        app:iconifiedByDefault="false"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:queryHint="Search..."-->
+    <!--        app:searchHintIcon="@null" />-->
+
+    <!--    &lt;!&ndash; Блок истории поиска &ndash;&gt;-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/searchHistoryRecyclerView"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/search" />-->
+
+    <!--    &lt;!&ndash; Переключатель темы &ndash;&gt;-->
+    <!--    <Switch-->
+    <!--        android:id="@+id/themeSwitch"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="Темная тема"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/searchHistoryRecyclerView"-->
+    <!--        tools:ignore="UseSwitchCompatOrMaterialXml" />-->
+
+    <!--    &lt;!&ndash; Кнопка очистки истории &ndash;&gt;-->
+    <!--    <Button-->
+    <!--        android:id="@+id/clearHistoryButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:onClick="onClearHistoryClick"-->
+    <!--        android:text="Очистить историю"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/searchHistoryRecyclerView" />-->
+
+    <!--    &lt;!&ndash; RecyclerView для основного списка &ndash;&gt;-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/recyclerView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/clearHistoryButton" />-->
+
+    <!--    &lt;!&ndash; ProgressBar для отображения загрузки &ndash;&gt;-->
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/searchProgress"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    tools:context=".MainActivity">-->
+
+    <!--    &lt;!&ndash; Строка поиска &ndash;&gt;-->
+    <!--    <androidx.appcompat.widget.SearchView-->
+    <!--        android:id="@+id/search"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        android:focusable="false"-->
+    <!--        app:iconifiedByDefault="false"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:queryHint="Search..."-->
+    <!--        app:searchHintIcon="@null" />-->
+
+    <!--    &lt;!&ndash; Блок истории поиска &ndash;&gt;-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/searchHistoryRecyclerView"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/search" />-->
+
+    <!--    &lt;!&ndash; Переключатель темы &ndash;&gt;-->
+    <!--    <Switch-->
+    <!--        android:id="@+id/themeSwitch"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="Темная тема"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/searchHistoryRecyclerView"-->
+    <!--        tools:ignore="UseSwitchCompatOrMaterialXml" />-->
+
+    <!--    &lt;!&ndash; Кнопка очистки истории &ndash;&gt;-->
+    <!--    <Button-->
+    <!--        android:id="@+id/clearHistoryButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:onClick="onClearHistoryClick"-->
+    <!--        android:text="Очистить историю"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/searchHistoryRecyclerView" />-->
+
+    <!--    &lt;!&ndash; RecyclerView для основного списка &ndash;&gt;-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/recyclerView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/clearHistoryButton" />-->
+
+    <!--    &lt;!&ndash; ProgressBar для отображения загрузки &ndash;&gt;-->
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/searchProgress"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
